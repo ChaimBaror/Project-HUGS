@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "./Login";
-import Button from "./Button";
+import FirstScreen from "./FirstScreen";
+
 
 
 export default function Main() {
@@ -10,7 +10,7 @@ export default function Main() {
 
       <Switch>
         <Route path="/">
-          <Login />
+          <FirstScreen />
         </Route>
       </Switch>
     </Router>
