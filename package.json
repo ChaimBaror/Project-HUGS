@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/hugs-develop/hugs#readme",
   "dependencies": {
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^17.0.0"
   }
 }
