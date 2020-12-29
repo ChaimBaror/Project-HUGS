@@ -23,10 +23,11 @@ const Login = () => {
       <HugsLogo width="100px" height="100px" />
       <Button
        text="Login"
-       width="366px"
-       height="70px"
+       width="88%"
+       height="10%"
        radius= "10px"
        background = "White"
+       color ="rgba(11, 32, 76, 1)"
        />
 
     </div>
