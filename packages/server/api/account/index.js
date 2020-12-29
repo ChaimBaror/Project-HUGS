@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
         res.json(newAccount);
     } catch (e) {
         res.status(422).json({
-            error: (e),
+            error: ('incorrect data provider'),
         });
     }
 });

@@ -15,6 +15,9 @@ async function init(sequelize) {
         },
         email: {
             type: DataTypes.STRING,
+            validate: {
+                isEmail: true,
+            },
         },
         registrationTime: {
             type: DataTypes.DATE,
