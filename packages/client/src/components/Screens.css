@@ -13,8 +13,8 @@
 }
 .screen {
     background: white;
+    padding: 13%;
     height: 88%;
-    width: 100%;
     top: 128px;
     border-radius: 40px 40px 0px 0px;
 }
@@ -24,26 +24,37 @@
     left: 3%;
     top: 4%;
 }
-.divText{
-    position: absolute;
-    /* left: 26.66%; */
-    right: 12.47%;
-    top: 20.42%;
-    bottom: 70.87%;
-    font-family: RAG-Sans 1.0;
-    font-style: normal;
+.divText {
+    padding-bottom: 6%;
+    font-family: RAG-Sans;
+    /* font-style: normal; */
     font-weight: 600;
     font-size: 38px;
     line-height: 101.8%;
     text-align: right;
     color: #0B204C;
 }
-
-.divRadioButton{
-    position: absolute;
-    background: rgb(203, 231, 231);
-    width: 85px;
+.divRadioButton {
     height: 138px;
     left: 278px;
     top: 310px;
+    text-align: right;
+}
+
+.imagePicker {
+    background: #FFFFFF;
+    border-radius: 50%;
+    border: rgba(40, 36, 92, 1) dashed;
+    font-size: 80px;
+    width: 130px;
+    height: 130px;
+    left: 231px;
+    top: 559px;
+}
+.textImage {
+    font-weight: 600;
+    font-size: 42px;
+    color: #0B204C;
+    text-align: right;
+    padding: 5%;
 }

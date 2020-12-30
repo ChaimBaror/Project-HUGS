@@ -13,23 +13,28 @@ const FirstScreen = () => {
     return (
         <div className='root'>
             <div className='screenTop'>
-                <HugsLogo   width="15%" height="auth" />
+                <HugsLogo width="15%" height="auth" />
                 <div className='backArrow'>
-                  <BackArrow  />
+                    <BackArrow />
                 </div>
             </div>
-           
 
-            <div  className='screen'>
+
+            <div className='screen'>
                 <div className='divText'>
-                <Text />עבור מי נפתח את מעגל המשפחה?
+                    <Text />עבור מי נפתח את מעגל המשפחה?
                 </div>
-                <div  className='divRadioButton'>
+                <div className='divRadioButton'>
                     <div className="divRadioButton">
-                   
-                    <RadioButton />
+
+                        <RadioButton />
                     </div>
-                
+
+                </div>
+                <div className="textImage">
+                    <div className="divText"> העלו תמונה</div><div className="center">
+                        <button className="imagePicker">+</button>
+                    </div>
                 </div>
                 {/* <ImagePicker /> */}
                 <Button
