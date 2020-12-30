@@ -28,6 +28,9 @@ function validateAccount(body) {
     if (typeof email !== 'string') {
         throw new Error('Invalid text');
     }
+    // const boardQeust = onboardingQuestioner.map((m) => {
+    //     const { ob } = m;
+    // });
     return {
         id: id || crypto.randomBytes(8).toString('hex'),
         email,
@@ -42,10 +45,10 @@ router.post('/', async (req, res) => {
         const account = validateAccount(body, false);
         const db = await getDB();
         const newAccount = await db.account.create({ ...account, userId });
-        res.json(newAccount);
+        res.json(newAccount.toJSON());
     } catch (e) {
         res.status(422).json({
-            error: ('incorrect data provider'),
+            error: 'incorrect data provider',
         });
     }
 });
