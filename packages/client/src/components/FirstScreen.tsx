@@ -9,6 +9,10 @@ import './Screens.css';
 
 
 export class FirstScreen extends Component {
+    onChangeValue(event:any) {
+        console.log(event.target.value);
+      }
+
     render() {
 
         return (
@@ -24,9 +28,18 @@ export class FirstScreen extends Component {
                 <div className='screen'>
                     <div className='divText'>
                         <Text />עבור מי נפתח את מעגל המשפחה?
-                </div>
+                    </div>
 
-                    <div className="divRadioButton">
+                    <div className="divRadioButton" onChange={this.onChangeValue}>
+                        סבא
+                         <input type="radio" value="grandfather" name="gender" /> 
+                         <br/>
+                         סבתא
+                         <input type="radio" value="grandmother" name="gender" /> 
+                         <br/>
+                         אחר
+                         <input type="radio" value="Other" name="gender" /> 
+     
                         <RadioButton />
                     </div>
 
@@ -43,8 +56,9 @@ export class FirstScreen extends Component {
                         radius="10px"
                         background="rgba(247, 105, 64, 1)"
                         color="white" />
+                    </div>
                 </div>
-            </div>
+           
         )
     }
 

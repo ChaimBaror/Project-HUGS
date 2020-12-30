@@ -39,6 +39,9 @@
     left: 278px;
     top: 310px;
     text-align: right;
+    flex-direction: unset;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .imagePicker {

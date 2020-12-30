@@ -9,7 +9,7 @@ export default function Main() {
   return (
     <Router>
       <Switch>
-        <Route path="/login">
+        <Route path="/" exact >
           <Login />
         </Route>
         <Route path="/first">
