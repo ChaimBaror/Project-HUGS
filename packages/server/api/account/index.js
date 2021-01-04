@@ -1,12 +1,11 @@
 const express = require('express');
 const crypto = require('crypto');
-const getDB = require('../../db');
 
 const router = express.Router();
 /**
  *  @typedef {object} Account
  *  @property {string} id
- *  @property {string} onboardingQuestioner
+ *  @property {string} questioner
  *
  */
 /**
@@ -22,7 +21,7 @@ function validateAccount(body) {
         throw new Error('Invalid body');
     }
     const {
-        id, email, registrationTime, onboardingQuestioner,
+        id, email, registrationTime, questioner,
     } = body;
 
     if (typeof email !== 'string') {
@@ -35,30 +34,27 @@ function validateAccount(body) {
         id: id || crypto.randomBytes(8).toString('hex'),
         email,
         registrationTime,
-        onboardingQuestioner,
+        questioner,
     };
 }
-router.post('/', async (req, res) => {
-    const { body } = req;
-    const { userId } = req.cookies;
-    try {
-        const account = validateAccount(body, false);
-        const db = await getDB();
-        const newAccount = await db.account.create({ ...account, userId });
-        res.json(newAccount.toJSON());
-    } catch (e) {
-        res.status(422).json({
-            error: 'incorrect data provider',
-        });
-    }
-});
 
-/* GET accounts listing. */
-router.get('/', (req, res) => {
-    res.send('respond with a resource');
-});
+function createRoute(db) {
+    return router.post('/', async (req, res) => {
+        const { body } = req;
+        const { userId } = req.cookies;
+        try {
+            const account = validateAccount(body, false);
+            const newAccount = await db.account.update({ ...account, userId });
+            res.json(newAccount.toJSON());
+        } catch (e) {
+            res.status(422).json({
+                error: 'incorrect data provider',
+            });
+        }
+    });
+}
 const ROUTE_PATH = '/account';
 module.exports = {
-    router,
+    createRoute,
     ROUTE_PATH,
 };

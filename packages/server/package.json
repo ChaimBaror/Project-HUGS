@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "debug":"cross-env DEBUG=* npm start",
-    "start": "cross-env DEBUG=* PGPASSWORD=qa12345 nodemon ./bin/www"
+    "debug": "cross-env DEBUG=* npm start",
+    "start": "cross-env DEBUG=* PGPASSWORD=qa12345 nodemon ./bin/www",
+    "start-mock": "cross-env DEBUG=* MOCK_DB=true nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

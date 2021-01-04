@@ -22,16 +22,16 @@ async function init(sequelize) {
         registrationTime: {
             type: DataTypes.DATE,
         },
-        onboardingQuestioner: {
+        questioner: {
             type: DataTypes.JSONB,
-            get(key) {
-                const {
-                    questionId, answerId, time, type,
-                } = JSON.parse(this.getDataValue(key));
-                return {
-                    questionId, answerId, time, type,
-                };
-            },
+            // get(key) {
+            //     const {
+            //         questionId, answerId, time, type,
+            //     } = JSON.parse(this.getDataValue(key));
+            //     return {
+            //         questionId, answerId, time, type,
+            //     };
+            // },
         },
     },
     {
