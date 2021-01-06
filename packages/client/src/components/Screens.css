@@ -6,9 +6,18 @@
     position: absolute;
 }
 
+.logo{
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  /* width: 113%; */
+  /* margin-left: auto; 
+  margin-right: auto; */
+
+}
+
 .screenTop {
-    text-align:center;
-    width: 100%;
+    /* width: 100%; */
     height: 15%;
 }
 .screen {
@@ -20,8 +29,7 @@
 }
 .backArrow{
     position: absolute;
-    width: 181%;
-    left: 3%;
+    left: 90%;
     top: 4%;
 }
 .divText {
@@ -59,5 +67,5 @@
     font-size: 42px;
     color: #0B204C;
     text-align: right;
-    padding: 5%;
+    /* padding: 5%; */
 }

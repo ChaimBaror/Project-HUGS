@@ -1,10 +1,12 @@
-import instance from './axios'
+import HttpClient from './http-client'
 
 
-export default class BaseHttpService {
+export default class BaseHttpService  {
+ 
+    httpClient = new HttpClient();
 
     async get(endpoint: string, options = {}) {
-        return instance.get(`${endpoint}`, options)
+        return this.httpClient.get(`${endpoint}`, options)
             .then(function (response) {
                 // handle success
                 console.log(response);
@@ -14,7 +16,7 @@ export default class BaseHttpService {
 
     async post(endpoint: string, data = {}, options = {}) {
 
-        return instance.post(`${endpoint}`, data, options)
+        return this.httpClient.post(`${endpoint}`, data, options)
             .then(function (response) {
                 console.log(response);
             })
@@ -26,13 +28,13 @@ export default class BaseHttpService {
 
     async delete(endpoint: string, options = {}) {
         Object.assign(options, this._getCommonOptions());
-        return instance.delete(`${endpoint}`, options)
+        return this.httpClient.delete(`${endpoint}`, options)
             .catch(error => this._handleHttpError(error));
     }
 
     async patch(endpoint: string, data = {}, options = {}) {
         Object.assign(options, this._getCommonOptions());
-        return instance.patch(`${endpoint}`, data, options)
+        return this.httpClient.patch(`${endpoint}`, data, options)
             .catch(error => this._handleHttpError(error));
     }
 

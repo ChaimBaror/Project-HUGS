@@ -9,19 +9,19 @@ import './Screens.css';
 
 
 export class FirstScreen extends Component {
-    onChangeValue(event:any) {
+    onChangeValue(event: any) {
         console.log(event.target.value);
-      }
+    }
 
     render() {
 
         return (
             <div className='root'>
-                <div className='screenTop'>
-                    <HugsLogo width="15%" height="auth" />
+                <div className='screenTop logo'>
                     <div className='backArrow'>
                         <BackArrow />
                     </div>
+                    <HugsLogo width="60%" height="60%" />
                 </div>
 
 
@@ -31,15 +31,19 @@ export class FirstScreen extends Component {
                     </div>
 
                     <div className="divRadioButton" onChange={this.onChangeValue}>
+                        <br />
                         סבא
-                         <input type="radio" value="grandfather" name="gender" /> 
-                         <br/>
+                         <input type="radio" value="grandfather" name="gender" />
+                        <br />
+                        <br />
                          סבתא
-                         <input type="radio" value="grandmother" name="gender" /> 
-                         <br/>
+                         <input type="radio" value="grandmother" name="gender" />
+                        <br />
+                        <br />
                          אחר
-                         <input type="radio" value="Other" name="gender" /> 
-     
+                         <input type="radio" value="Other" name="gender" />
+                        <br />
+
                         <RadioButton />
                     </div>
 
@@ -49,6 +53,7 @@ export class FirstScreen extends Component {
                             {/* <ImagePicker /> */}
                         </div>
                     </div>
+
                     <Button
                         text="הבא"
                         width="65%"
@@ -56,9 +61,10 @@ export class FirstScreen extends Component {
                         radius="10px"
                         background="rgba(247, 105, 64, 1)"
                         color="white" />
-                    </div>
+
                 </div>
-           
+            </div>
+
         )
     }
 

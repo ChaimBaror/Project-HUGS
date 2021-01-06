@@ -9,12 +9,8 @@ export default function Main() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact >
-          <Login />
-        </Route>
-        <Route path="/first">
-          <FirstScreen />
-        </Route>
+        <Route path="/" exact > <Login /></Route>
+        <Route path="/first"> <FirstScreen /> </Route>
       </Switch>
     </Router>
   );

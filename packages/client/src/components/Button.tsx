@@ -1,4 +1,6 @@
 import React from "react";
+import {Button as But} from '@material-ui/core';
+
 import { makeStyles } from "@material-ui/core/styles";
 
 interface Props {
@@ -23,12 +25,13 @@ const Button = (props: Props) => {
     "width": props.width,
     "color": props.color,
     "font-size": "150%",
-   "box-shadow": "2px 2px 8px #888888",  
+    "box-shadow": "2px 2px 8px #888888",  
     "left": "0%",
     "right": "0%",
     "margin": "auto",
     "bottom": "2.96%",
     "border": "none",
+    
   },
 });
   const classes = useStyles();
@@ -39,9 +42,9 @@ const Button = (props: Props) => {
   }
   //  create code for button
   return (
-    <button className={classes.root} onClick={clickd}>
+    <But className={classes.root} onClick={clickd}>
       {text}
-      </button>
+      </But>
   );
 };
 
