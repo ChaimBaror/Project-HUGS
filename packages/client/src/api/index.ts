@@ -1,17 +1,16 @@
 import HttpClient from './http-client'
 
 
-export default class BaseHttpService  {
- 
+export default class BaseHttpService {
+
     httpClient = new HttpClient();
 
     async get(endpoint: string, options = {}) {
-        return this.httpClient.get(`${endpoint}`, options)
+        return this.httpClient.require('GET', `${endpoint}`, options)
             .then(function (response) {
                 // handle success
                 console.log(response);
             })
-
     }
 
     async post(endpoint: string, data = {}, options = {}) {
@@ -50,7 +49,7 @@ export default class BaseHttpService  {
 
 
 
-    
+
     _getCommonOptions() {
         const token = this.loadToken();
         return {
