@@ -8,7 +8,7 @@ interface Props {
   HugsLogo:any;
   headerHeight:string;
   children:any
-
+  badyHeight:string;
 }
 
 
@@ -33,9 +33,10 @@ const Container = (props: Props) => {
     bady: {
       background: 'white',
       padding: '13%',
-      height: '88%',
+      height:props.badyHeight,
       top: '128px',
       'border-radius': '40px 40px 0px 0px',
+      display:'block'
     },
   }
   );
@@ -51,7 +52,6 @@ const Container = (props: Props) => {
              {props.HugsLogo}
           </div>
         </header>
-
 
         <div className={classes.bady}>
           {props.children}

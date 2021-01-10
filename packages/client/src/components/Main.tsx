@@ -19,7 +19,8 @@ export default function Main() {
         <Route path="/userInput"> <UserInput /> </Route>
       
         <Route path="/Container"> <Container
-        headerHeight='15%'
+         headerHeight='15%'
+         badyHeight='71%'
          BackArrow={<BackArrow />}
          HugsLogo ={ <HugsLogo width="60%" height="60%" />}
         >
