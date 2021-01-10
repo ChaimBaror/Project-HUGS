@@ -1,5 +1,4 @@
 import React from "react";
-import {Button as But} from '@material-ui/core';
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -42,9 +41,9 @@ const Button = (props: Props) => {
   }
   //  create code for button
   return (
-    <But className={classes.root} onClick={clickd}>
+    <button className={classes.root} onClick={clickd}>
       {text}
-      </But>
+      </button>
   );
 };
 

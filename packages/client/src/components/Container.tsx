@@ -3,11 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 interface Props {
+  headerHeight: string;
+  badyHeight: string;
   BackArrow: any;
   HugsLogo: any;
-  headerHeight: string;
-  children: any
-  badyHeight: string;
+  children: any;
 }
 
 
@@ -47,7 +47,7 @@ const Container = (props: Props) => {
         <div className={classes.backArrow}>
           {props.BackArrow}
         </div>
-        <div className='screenTop logo'>
+        <div>
           {props.HugsLogo}
         </div>
 
