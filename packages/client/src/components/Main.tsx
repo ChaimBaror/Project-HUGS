@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import FirstScreen from "./FirstScreen";
+import UserInput from "./InputUser/InputUser";
 import Login from "./Login";
 import Container from './Container';
 import BackArrow from "./BackArrow";
@@ -21,6 +23,7 @@ export default function Main() {
          BackArrow={<BackArrow />}
          HugsLogo ={ <HugsLogo width="60%" height="60%" />}
         >
+          chaim baror
           <Button
           text="הבא"
           width="65%"
