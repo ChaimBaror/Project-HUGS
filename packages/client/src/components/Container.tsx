@@ -3,7 +3,16 @@ import { COLORS } from "./Colors.js";
 import { makeStyles } from '@material-ui/core/styles';
 
 
-const Container = (props: any) => {
+interface Props {
+  BackArrow: any;
+  HugsLogo:any;
+  headerHeight:string;
+  children:any
+
+}
+
+
+const Container = (props: Props) => {
 
   const useStyles = makeStyles({
     root: {
@@ -22,7 +31,7 @@ const Container = (props: any) => {
     },
   
     bady: {
-        background: 'white',
+      background: 'white',
       padding: '13%',
       height: '88%',
       top: '128px',
