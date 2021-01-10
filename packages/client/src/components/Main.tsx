@@ -15,19 +15,23 @@ export default function Main() {
     <Router>
       <Switch>
         <Route path="/" exact > <Login /></Route>
-      
+        <Route path="/first"> <FirstScreen /> </Route>
+        <Route path="/userInput"> <UserInput /> </Route>
       
         <Route path="/Container"> <Container
+        headerHeight='15%'
          BackArrow={<BackArrow />}
          HugsLogo ={ <HugsLogo width="60%" height="60%" />}
-          Button={<Button
+        >
+          chaim baror
+          <Button
           text="הבא"
           width="65%"
           height="6.3%"
           radius="10px"
           background="rgba(247, 105, 64, 1)"
-          color="white" />}
-        /> </Route>
+          color="white" />
+          </Container> </Route>
 
 
        

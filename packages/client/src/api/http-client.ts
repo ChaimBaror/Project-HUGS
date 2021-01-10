@@ -19,12 +19,13 @@ export default class HttpClient {
     }
 
 
-    async require(method: Method, url: string, data: {}) {
+    async require(method :Method ,url: string, options: {}) {
         let axiosResult: AxiosResponse = await this.instance({
             method: method,
             url: url,
-            data: data
+            headers:options
         })
+
         let result: UniversalResponse = {
             data: axiosResult.data,
             status: axiosResult.status,
@@ -35,7 +36,7 @@ export default class HttpClient {
     }
 
     async get(url: string, options: {}) {
-        let axiosResult: AxiosResponse = await this.instance.get(url, options)
+        let axiosResult: AxiosResponse = await this.instance.get(url,options)
         let result: UniversalResponse = {
             data: axiosResult.data,
             status: axiosResult.status,

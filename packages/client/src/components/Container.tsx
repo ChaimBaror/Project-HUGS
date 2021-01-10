@@ -1,44 +1,53 @@
 import React, { useEffect, useState } from "react";
 import { COLORS } from "./Colors.js";
 import { makeStyles } from '@material-ui/core/styles';
-import BackArrow from "./BackArrow";
-import HugsLogo from './HugsLogo';
-import RadioButton from './RadioButton';
-import Button from './Button';
 
-const useStyles = makeStyles({
-  root: {
-    background: COLORS.main_background,
-    height: '100%',
-    width: '100%',
-    position: 'absolute'
-  },
-});
 
 const Container = (props: any) => {
+
+  const useStyles = makeStyles({
+    root: {
+      background: "rgba(40, 36, 92, 1)",
+      height: '100%',
+      width: '100%',
+      position: 'absolute'
+    },
+  
+    header: {
+      height:props.headerHeight,
+      width: '100%',
+      display: 'flex', 
+      'justify-content': 'center',
+      'align-items': 'center', 
+    },
+  
+    bady: {
+        background: 'white',
+      padding: '13%',
+      height: '88%',
+      top: '128px',
+      'border-radius': '40px 40px 0px 0px',
+    },
+  }
+  );
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-
-      <div className='root'>
-        <header className='screenTop logo'>
-
+      <div className={classes.root}>
+        <header className={classes.header}>
           <div className='screenTop logo'>
             <div className='backArrow'>
               {props.BackArrow}
             </div>
-            {props.HugsLogo}
+             {props.HugsLogo}
           </div>
         </header>
 
 
-        <div className='screen'>
-       
-          {props.Button}
+        <div className={classes.bady}>
+          {props.children}
         </div>
       </div>
-    </div>
   )
 };
 
