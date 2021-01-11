@@ -8,7 +8,8 @@ interface Props {
   height:string;
   background : string;
   radius:string;
-  color:string
+  color:string;
+  onClick:any
   
 }
 
@@ -36,12 +37,10 @@ const Button = (props: Props) => {
   const classes = useStyles();
   const text = props.text
   
-  const clickd = () => {
-    console.log("onClick");
-  }
+ 
   //  create code for button
   return (
-    <button className={classes.root} onClick={clickd}>
+    <button className={classes.root} onClick={props.onClick}>
       {text}
       </button>
   );

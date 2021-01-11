@@ -6,22 +6,16 @@ export default class BaseHttpService {
     httpClient = new HttpClient();
 
     async get(endpoint: string, options = {}) {
+        Object.assign(options, this._getCommonOptions());
         return this.httpClient.require('GET', `${endpoint}`, options)
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
+        .catch(error => this._handleHttpError(error));
+
     }
 
     async post(endpoint: string, data = {}, options = {}) {
-
+        Object.assign(options, this._getCommonOptions());
         return this.httpClient.post(`${endpoint}`, data, options)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        .catch(error => this._handleHttpError(error));  
 
     }
 

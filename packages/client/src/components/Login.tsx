@@ -28,6 +28,7 @@ const Login = () => {
        radius= "10px"
        background = "White"
        color ="rgba(11, 32, 76, 1)"
+       onClick={()=>console.log("Login")}
        />
 
     </div>

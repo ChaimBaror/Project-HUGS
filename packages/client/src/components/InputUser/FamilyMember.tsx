@@ -1,53 +1,56 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect, useState } from 'react'
 import UserInput from './InputUser'
 import girl from "../../icons/image/girl.svg";
 import nephew from "../../icons/image/nephew.svg";
 import granddaughter from "../../icons/image/granddaughter.svg";
-import { Avatar, Card, createStyles, makeStyles, Theme, useTheme } from '@material-ui/core';
+import { Avatar, createStyles, makeStyles, } from '@material-ui/core';
+import BaseHttpService from '../../api';
+
 
 
 export const FamilyMember = () => {
+    const http = new BaseHttpService()
     const useStyles = makeStyles(() =>
         createStyles({
             root: {
                 display: 'flex',
                 'border-bottom': '0.1px solid #919BB3',
-                padding:'5px',
+                padding: '5px',
             },
             details: {
                 display: 'flex',
-                padding:'5px',
-                flexDirection: 'column',   
+                padding: '5px',
+                flexDirection: 'column',
             },
-            sub:{
-                color:'#C4C4C4'
+            sub: {
+                color: '#C4C4C4'
             },
-            button:{
-            position: "absolute",
-            "font-size": "150%",
-            "box-shadow": "2px 2px 8px #888888",  
-            "left": "0%",
-            "right": "0%",
-            "margin": "auto",
-            "bottom": "2.96%",
-            "border": "none",
-            }
         }),
     );
-
-
     const classes = useStyles();
-  
-    const state = {
+
+    const [member, setMember] = useState({
         famliy: [
-            { firstName: "Rachel", lastName: "Berkowitz", Image: girl, role: "girl" },
-            { firstName: "Amos", lastName: "Cohen", Image: nephew, role: "nephew" },
-            { firstName: "Anat", lastName: "Levy", Image: granddaughter, role: "granddaughter" }
-
+            { id: 1, firstName: "Rachel", lastName: "Berkowitz", Image: girl, role: "girl" },
+            { id: 2, firstName: "Amos", lastName: "Cohen", Image: nephew, role: "nephew" },
+            { id: 3, firstName: "Anat", lastName: "Levy", Image: granddaughter, role: "granddaughter" },
+            { id: 4, firstName: "david", lastName: "Cohen", Image: nephew, role: "nephew" },
         ]
+    });
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const result = http.get('https://jsonplaceholder.typicode.com/posts/1')
+            .then(res => {
+                console.log("res", res.data);
+                // setMember(res.data);
+            })
+    });
+
+    const addNewMamber = (event: any) => {
+        console.log('event');
+
     }
-
-
 
 
     return (
@@ -56,21 +59,17 @@ export const FamilyMember = () => {
                 הוסיפו בני משפחה למעגל החיבוקים של סבתא
                 </div>
 
-            {state.famliy.map((Member) => (
+            {member.famliy.map((Member) => (
 
-                <div className={classes.root}>
+                <div className={classes.root} onClick={() => console.log('key =', Member.id)}>
                     <Avatar className={classes.details} aria-label="recipe" src={Member.Image} />
-                  <div className={classes.details}>
-                   {Member.firstName} {Member.lastName}
-                    <sub className={classes.sub}>{Member.role}</sub>
+                    <div className={classes.details} >
+                        {Member.firstName} {Member.lastName}
+                        <sub className={classes.sub}>{Member.role}</sub>
                     </div>
                 </div>
-
             ))}
-
-        
-            < UserInput />
-          
+            <UserInput onClick={()=> addNewMamber} />
         </div>
     )
 

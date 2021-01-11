@@ -60,7 +60,8 @@ export class FirstScreen extends Component {
                         height="6.3%"
                         radius="10px"
                         background="rgba(247, 105, 64, 1)"
-                        color="white" />
+                        color="white"
+                        onClick={()=>console.log("הבא")} />
 
                 </div>
             </div>
