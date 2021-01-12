@@ -1,8 +1,12 @@
-import React, { Component, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import UserInput from './InputUser'
 import girl from "../../icons/image/girl.svg";
 import nephew from "../../icons/image/nephew.svg";
-import granddaughter from "../../icons/image/granddaughter.svg";
+import daughter from "../../icons/image/granddaughter.svg";
+import grandchild from "../../icons/image/grandchild.svg";
+import grandson from "../../icons/image/grandson.svg";
+
+
 import { Avatar, createStyles, makeStyles, } from '@material-ui/core';
 import BaseHttpService from '../../api';
 
@@ -28,19 +32,20 @@ export const FamilyMember = () => {
         }),
     );
     const classes = useStyles();
-
-    const [member, setMember] = useState({
-        famliy: [
+    const [user, setUser] = useState();
+    const [member, setMember] = useState(
+        [
             { id: 1, firstName: "Rachel", lastName: "Berkowitz", Image: girl, role: "girl" },
             { id: 2, firstName: "Amos", lastName: "Cohen", Image: nephew, role: "nephew" },
-            { id: 3, firstName: "Anat", lastName: "Levy", Image: granddaughter, role: "granddaughter" },
-            { id: 4, firstName: "david", lastName: "Cohen", Image: nephew, role: "nephew" },
+            { id: 3, firstName: "Anat", lastName: "Levy", Image: daughter, role: "daughter" },
+           
+
         ]
-    });
-    const [user, setUser] = useState(null);
+    );
 
     useEffect(() => {
-        const result = http.get('https://jsonplaceholder.typicode.com/posts/1')
+        // const setUser = JSON.parse(atob(localStorage.getItem('accessToken').split('.')[1]))
+        const allMember = http.get(`/allMember/${user}`)
             .then(res => {
                 console.log("res", res.data);
                 // setMember(res.data);
@@ -48,9 +53,57 @@ export const FamilyMember = () => {
     });
 
     const addNewMamber = (event: any) => {
-        console.log('event');
+        console.log('addNewMamber', event);
+        let image
+        switch (event.role) {
+            case 'girl':
+                image = girl;
+                break;
+            case "אחות":
+                image = girl;
+                break;
+            case 'בת':
+                image = daughter;
+                break;
+            case 'daughter':
+                image = daughter;
+                break;
+            case 'נכדה':
+                image = grandchild;
+                break;
+            case 'granddaughter':
+                image = grandchild;
+                break;
+            case 'נכד':
+                image = grandson;
+                break;
+            case 'grandson':
+                image = grandson;
+                     break;      
+            default:
+                image = nephew;
+                break;
+        }
+        const newMember = {
+            id: Math.random() * 10000,
+            firstName: event.firstName,
+            lastName: event.lastName,
+            Image: image,
+            role: event.role
+        }
+
+        setMember(
+            [...member, newMember])
+        console.log(http.post('/post', newMember))
+        console.log("member", member);
 
     }
+
+   const deletePersonHandler = (personIndex:any) => {
+        const mewmember = [...member]
+        mewmember.splice(personIndex, 1);
+        setMember( mewmember);
+      }
 
 
     return (
@@ -59,9 +112,10 @@ export const FamilyMember = () => {
                 הוסיפו בני משפחה למעגל החיבוקים של סבתא
                 </div>
 
-            {member.famliy.map((Member) => (
+            {member.map((Member,index) => (
 
-                <div className={classes.root} onClick={() => console.log('key =', Member.id)}>
+                <div className={classes.root} onClick={() =>
+                window.confirm(`Are you sure you wish to delete this ${Member.firstName }?`) &&  deletePersonHandler(index)}>
                     <Avatar className={classes.details} aria-label="recipe" src={Member.Image} />
                     <div className={classes.details} >
                         {Member.firstName} {Member.lastName}
@@ -69,7 +123,7 @@ export const FamilyMember = () => {
                     </div>
                 </div>
             ))}
-            <UserInput onClick={()=> addNewMamber} />
+            <UserInput setAddUser={addNewMamber} />
         </div>
     )
 
