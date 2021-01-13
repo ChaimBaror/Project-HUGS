@@ -11,13 +11,9 @@ const useStyles = makeStyles({
     width: "100%",
     position: "absolute",
   },
+
 });
 
-
-// this test click login console.log()
-const LoginClick = () => {
-  console.log('Click Login');
-}
 
 const Login = () => {
   const classes = useStyles();
@@ -32,8 +28,9 @@ const Login = () => {
        radius= "10px"
        background = "White"
        color ="rgba(11, 32, 76, 1)"
-       onClick={LoginClick}
+       onClick={()=>console.log("Login")}
        />
+
     </div>
   );
 };
