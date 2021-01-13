@@ -18,7 +18,7 @@ export const FamilyMember = () => {
         createStyles({
             root: {
                 display: 'flex',
-                'border-bottom': '0.1px solid #919BB3',
+                'border-bottom': '0.1px solid #C4C4C4',
                 padding: '5px',
             },
             details: {
@@ -38,8 +38,6 @@ export const FamilyMember = () => {
             { id: 1, firstName: "Rachel", lastName: "Berkowitz", Image: girl, role: "girl" },
             { id: 2, firstName: "Amos", lastName: "Cohen", Image: nephew, role: "nephew" },
             { id: 3, firstName: "Anat", lastName: "Levy", Image: daughter, role: "daughter" },
-           
-
         ]
     );
 
@@ -79,7 +77,7 @@ export const FamilyMember = () => {
                 break;
             case 'grandson':
                 image = grandson;
-                     break;      
+                break;
             default:
                 image = nephew;
                 break;
@@ -99,29 +97,30 @@ export const FamilyMember = () => {
 
     }
 
-   const deletePersonHandler = (personIndex:any) => {
+    const deletePersonHandler = (personIndex: any) => {
         const mewmember = [...member]
-        mewmember.splice(personIndex, 1);
-        setMember( mewmember);
-      }
+        const deleteuser = mewmember.splice(personIndex, 1);
+        setMember(mewmember);
+
+        http.delete(`/member/${user}`, deleteuser)
+    }
 
 
     return (
         <div>
             <div className='divText'>
                 הוסיפו בני משפחה למעגל החיבוקים של סבתא
-                </div>
+            </div>
 
-            {member.map((Member,index) => (
-
-                <div className={classes.root} onClick={() =>
-                window.confirm(`Are you sure you wish to delete this ${Member.firstName }?`) &&  deletePersonHandler(index)}>
-                    <Avatar className={classes.details} aria-label="recipe" src={Member.Image} />
-                    <div className={classes.details} >
-                        {Member.firstName} {Member.lastName}
-                        <sub className={classes.sub}>{Member.role}</sub>
-                    </div>
+            {member.map((Member, index) => (
+            <div className={classes.root} onClick={() =>
+                window.confirm(`Are you sure you wish to delete this ${Member.firstName}?`) && deletePersonHandler(index)}>
+                <Avatar className={classes.details} aria-label="recipe" src={Member.Image} />
+                <div className={classes.details} >
+                    {Member.firstName} {Member.lastName}
+                    <sub className={classes.sub}>{Member.role}</sub>
                 </div>
+            </div>
             ))}
             <UserInput setAddUser={addNewMamber} />
         </div>

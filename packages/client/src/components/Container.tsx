@@ -37,6 +37,9 @@ const Container = (props: Props) => {
       position: 'absolute',
       left: '90%',
       top: '4%',
+    },
+    center:{
+      "text-align": 'center',
     }
   });
   const classes = useStyles();
@@ -47,7 +50,7 @@ const Container = (props: Props) => {
         <div className={classes.backArrow}>
           {props.BackArrow}
         </div>
-        <div>
+        <div className={classes.center}>
           {props.HugsLogo}
         </div>
 

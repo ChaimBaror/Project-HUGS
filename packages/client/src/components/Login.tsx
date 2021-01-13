@@ -22,7 +22,7 @@ const Login = () => {
     <div className={classes.root}>
       <HugsLogo width="100px" height="100px" />
       <Button
-       text="Login"
+       text=""
        width="88%"
        height="10%"
        radius= "10px"

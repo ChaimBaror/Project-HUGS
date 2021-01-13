@@ -89,7 +89,6 @@ export const Form = (props: Props) => {
                     onChange={handleInputChange}
                     fullWidth
                 />
-
                 <RadioGroup
                     aria-label="role"
                     name="role"
