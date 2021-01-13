@@ -15,4 +15,4 @@ export class BackArrow extends Component {
     }
 }
 
-export default BackArrow;
+export default BackArrow

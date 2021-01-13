@@ -5,8 +5,6 @@ import nephew from "../../icons/image/nephew.svg";
 import daughter from "../../icons/image/granddaughter.svg";
 import grandchild from "../../icons/image/grandchild.svg";
 import grandson from "../../icons/image/grandson.svg";
-
-
 import { Avatar, createStyles, makeStyles, } from '@material-ui/core';
 import BaseHttpService from '../../api';
 
@@ -109,6 +107,7 @@ export const FamilyMember = () => {
     return (
         <div>
             <div className='divText'>
+            
                 הוסיפו בני משפחה למעגל החיבוקים של סבתא
             </div>
 

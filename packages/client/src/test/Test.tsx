@@ -1,6 +1,4 @@
 import React from "react";
-import Button from '../components/Button'
-import Login from '../components/Login'
 function App() {
   return (
     <>
@@ -18,10 +16,10 @@ function App() {
       <div style={{ height: "100%", background: "blue", width: "100%" }}>
 
         {/* example to test button component */}
-        <Button></Button>
+        {/* <Button></Button> */}
 
         {/* example to test login component */}
-        <Login></Login>
+        {/* <Login></Login> */}
         </div>
     </>
   );
