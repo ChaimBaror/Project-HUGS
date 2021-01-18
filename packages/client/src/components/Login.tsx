@@ -3,6 +3,7 @@ import { COLORS } from "./Colors.js";
 import { makeStyles } from "@material-ui/core/styles";
 import HugsLogo from "./HugsLogo";
 import Button from "./Button";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   root: {
@@ -11,18 +12,21 @@ const useStyles = makeStyles({
     width: "100%",
     position: "absolute",
   },
-
 });
+
+
+// });
 
 
 const Login = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
     <div className={classes.root}>
       <HugsLogo width="100px" height="100px" />
       <Button
-       text=""
+       text={t("next")}
        width="88%"
        height="10%"
        radius= "10px"

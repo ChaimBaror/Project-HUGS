@@ -9,7 +9,8 @@ interface Props {
   background : string;
   radius:string;
   color:string;
-  onClick:any
+  onClick:()=>void;
+
 }
 
 const Button = (props: Props) => {

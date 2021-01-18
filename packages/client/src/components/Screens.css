@@ -1,0 +1,51 @@
+
+
+.logo{
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+
+}
+
+.backArrow{
+    position: absolute;
+    left: 90%;
+    top: 4%;
+}
+.divText {
+    padding-bottom: 6%;
+    font-family: RAG-Sans;
+    /* font-style: normal; */
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 101.8%;
+    text-align: right;
+    color: #0B204C;
+}
+.divRadioButton {
+    height: 138px;
+    left: 278px;
+    top: 310px;
+    text-align: right;
+    flex-direction: unset;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.imagePicker {
+    background: #FFFFFF;
+    border-radius: 50%;
+    border: rgba(40, 36, 92, 1) dashed;
+    font-size: 80px;
+    width: 130px;
+    height: 130px;
+    left: 231px;
+    top: 559px;
+}
+.textImage {
+    font-weight: 600;
+    font-size: 42px;
+    color: #0B204C;
+    text-align: right;
+    /* padding: 5%; */
+}

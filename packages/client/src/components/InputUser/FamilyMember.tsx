@@ -7,10 +7,13 @@ import grandchild from "../../icons/image/grandchild.svg";
 import grandson from "../../icons/image/grandson.svg";
 import { Avatar, createStyles, makeStyles, } from '@material-ui/core';
 import BaseHttpService from '../../api';
+import { useTranslation } from 'react-i18next';
 
 
 
 export const FamilyMember = () => {
+    const { t } = useTranslation();
+
     const http = new BaseHttpService()
     const useStyles = makeStyles(() =>
         createStyles({
@@ -49,29 +52,22 @@ export const FamilyMember = () => {
     });
 
     const addNewMamber = (event: any) => {
+
         console.log('addNewMamber', event);
         let image
+
         switch (event.role) {
-            case 'girl':
+            case t("girl"):
                 image = girl;
                 break;
-            case "אחות":
-                image = girl;
-                break;
-            case 'בת':
+            case  t("daughter"):
                 image = daughter;
                 break;
-            case 'daughter':
-                image = daughter;
-                break;
-            case 'נכדה':
+            case t("grandchild"):
                 image = grandchild;
                 break;
-            case 'granddaughter':
-                image = grandchild;
-                break;
-            case 'נכד':
-                image = grandson;
+            case t("else"):
+                image = nephew;
                 break;
             case 'grandson':
                 image = grandson;

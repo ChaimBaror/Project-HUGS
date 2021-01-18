@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, DialogTitle, DialogContentText, DialogContent, TextField, DialogActions, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
     onClose: any
@@ -7,6 +8,7 @@ interface Props {
 }
 
 export const Form = (props: Props) => {
+    const { t } = useTranslation();
     const [state, setState] = useState({
         lastName: "",
         firstName: "",
@@ -30,11 +32,10 @@ export const Form = (props: Props) => {
         props.onClose()
     }
     const options = [
-        "בת",
-        'אחות',
-        "נכד",
-        'נכדה',
-        'אחר',
+       t("girl"),
+       t("daughter"),
+      t("grandchild"),
+       t("else"),
     ];
 
     return (
@@ -103,10 +104,12 @@ export const Form = (props: Props) => {
             </DialogContent>
             <DialogActions>
                 <Button onClick={props.onClose} color="primary">
-                    Cancel
+                   
+                    {t("Cancel")}
             </Button>
                 <Button type='submit' color="primary">
-                    add
+                {t("add")}
+                   
             </Button>
             </DialogActions>
         </form>
