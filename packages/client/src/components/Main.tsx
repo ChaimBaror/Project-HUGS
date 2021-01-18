@@ -6,7 +6,7 @@ import HugsLogo from "./HugsLogo";
 import Button from './Button';
 import FamilyMember from "./InputUser/FamilyMember";
 import Login from "./Login";
-
+import { Translation } from "react-i18next/*";
 
 export default function Main() {
   return (
@@ -43,6 +43,10 @@ export default function Main() {
 
             <FamilyMember />
           </Container>
+        </Route>
+
+        <Route path="/translation">
+        {/* <Translation /> */}
         </Route>
 
       </Switch>
