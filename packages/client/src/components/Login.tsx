@@ -15,9 +15,6 @@ const useStyles = makeStyles({
 });
 
 
-// });
-
-
 const Login = () => {
   const classes = useStyles();
   const { t } = useTranslation();
@@ -26,7 +23,7 @@ const Login = () => {
     <div className={classes.root}>
       <HugsLogo width="100px" height="100px" />
       <Button
-       text={t("next")}
+       text={t("Login")}
        width="88%"
        height="10%"
        radius= "10px"

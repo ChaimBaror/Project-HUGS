@@ -66,10 +66,10 @@ export const FamilyMember = () => {
             case t("grandchild"):
                 image = grandchild;
                 break;
-            case t("else"):
+            case t("nephew"):
                 image = nephew;
                 break;
-            case 'grandson':
+            case t("grandson"):
                 image = grandson;
                 break;
             default:
@@ -103,8 +103,7 @@ export const FamilyMember = () => {
     return (
         <div>
             <div className='divText'>
-            
-                הוסיפו בני משפחה למעגל החיבוקים של סבתא
+            {t("AddMemberTitle")} 
             </div>
 
             {member.map((Member, index) => (

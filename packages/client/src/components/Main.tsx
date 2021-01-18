@@ -6,14 +6,27 @@ import HugsLogo from "./HugsLogo";
 import Button from './Button';
 import FamilyMember from "./InputUser/FamilyMember";
 import Login from "./Login";
-import { Translation } from "react-i18next/*";
+import { Translation, useTranslation } from "react-i18next";
+import FirstScreen from "./FirstScreen";
 
 export default function Main() {
+  const { t } = useTranslation();
+
   return (
     <Router>
       <Switch>
         <Route path="/" exact >
           <Login />
+        </Route>
+        <Route path="/First"  >
+          <Container
+            headerHeight='15%'
+            badyHeight='71%'
+            BackArrow={<BackArrow />}
+            HugsLogo={<HugsLogo width="60%" height="60%" />}
+          >
+          <FirstScreen />
+          </Container>
         </Route>
 
         <Route path="/Container">
@@ -24,7 +37,7 @@ export default function Main() {
             HugsLogo={<HugsLogo width="60%" height="60%" />}
           >
             <Button
-              text=""
+              text={t("next")}
               width="65%"
               height="6.3%"
               radius="10px"

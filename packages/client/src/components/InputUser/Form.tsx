@@ -3,8 +3,8 @@ import { Button, DialogTitle, DialogContentText, DialogContent, TextField, Dialo
 import { useTranslation } from 'react-i18next';
 
 interface Props {
-    onClose: any
-    setAddUser: any
+    onClose:()=>void
+    setAddUser:(e:any)=>void
 }
 
 export const Form = (props: Props) => {
@@ -34,24 +34,26 @@ export const Form = (props: Props) => {
     const options = [
        t("girl"),
        t("daughter"),
-      t("grandchild"),
-       t("else"),
+       t("grandson"),
+       t("grandchild"),
+       t("nephew"),
     ];
 
     return (
         <form onSubmit={handleSubmit}>
-            <DialogTitle id="form-dialog-title">  הוסף בן משפחה </DialogTitle>
+            <DialogTitle id="form-dialog-title">{t("AddMember")}       
+         </DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                     בן משפחה
-            </DialogContentText>
+                {/* {t("AddMember")} */}
+               </DialogContentText>
          
                 <TextField
                     autoFocus
                     margin="dense"
                     id="firstName"
                     name="firstName"
-                    label="first Name"
+                    label={t("firstName")}
                     type="text"
                     value={state.firstName}
                     onChange={handleInputChange}
@@ -62,7 +64,7 @@ export const Form = (props: Props) => {
                     margin="dense"
                     id="lastName"
                     name="lastName"
-                    label="last Name"
+                    label={t("lastName")}
                     type="text"
                     value={state.lastName}
                     onChange={handleInputChange}
@@ -72,8 +74,8 @@ export const Form = (props: Props) => {
                 <TextField
                     autoFocus
                     margin="dense"
-                    label="email"
-                    type="text"
+                    label={t("email")}
+                    type="email"
                     name="email"
                     value={state.email}
                     onChange={handleInputChange}
@@ -83,7 +85,7 @@ export const Form = (props: Props) => {
                     autoFocus
                     margin="dense"
                     id="Phone"
-                    label="Phone"
+                    label={t("Phone")}
                     type="Phone"
                     name="Phone"
                     value={state.Phone}
@@ -104,18 +106,12 @@ export const Form = (props: Props) => {
             </DialogContent>
             <DialogActions>
                 <Button onClick={props.onClose} color="primary">
-                   
                     {t("Cancel")}
             </Button>
                 <Button type='submit' color="primary">
                 {t("add")}
-                   
             </Button>
             </DialogActions>
-        </form>
-
-    )
-
-}
-
+        </form>  )
+        }
 export default Form;
