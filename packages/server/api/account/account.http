@@ -1,0 +1,8 @@
+POST  http://localhost:8080/account HTTP/1.1
+content-type: application/json
+
+{
+  "id":"yak4ov5",
+  "email": "abcd@gmdhkmjhil.com",
+  "registrationTime": "Sun Dec 27 2020 17:48:19 GMT+0200"
+}
