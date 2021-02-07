@@ -18,10 +18,15 @@ export const FamilyMember = () => {
     const useStyles = makeStyles(() =>
         createStyles({
             root: {
+                height: '48vh',
+                overflow: 'auto',
+            },
+            rowCred:{
                 display: 'flex',
                 'border-bottom': '0.1px solid #C4C4C4',
                 padding: '5px',
             },
+
             details: {
                 display: 'flex',
                 padding: '5px',
@@ -105,9 +110,9 @@ export const FamilyMember = () => {
             <div className='divText'>
             {t("AddMemberTitle")} 
             </div>
-
+            <div className={classes.root}>
             {member.map((Member, index) => (
-            <div className={classes.root} onClick={() =>
+            <div className={classes.rowCred} onClick={() =>
                 window.confirm(`Are you sure you wish to delete this ${Member.firstName}?`) && deletePersonHandler(index)}>
                 <Avatar className={classes.details} aria-label="recipe" src={Member.Image} />
                 <div className={classes.details} >
@@ -116,7 +121,10 @@ export const FamilyMember = () => {
                 </div>
             </div>
             ))}
+              </div>
+            <div>
             <UserInput setAddUser={addNewMamber} />
+            </div>
         </div>
     )
 

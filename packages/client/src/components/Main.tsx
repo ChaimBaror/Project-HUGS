@@ -8,6 +8,10 @@ import FamilyMember from "./InputUser/FamilyMember";
 import Login from "./Login";
 import { Translation, useTranslation } from "react-i18next";
 import FirstScreen from "./FirstScreen";
+import Test from '../test/Test' 
+// import Translation from "../languageSelect";
+import Example1 from "./Example1";
+import Example2 from "./Example2";
 
 export default function Main() {
   const { t } = useTranslation();
@@ -60,6 +64,27 @@ export default function Main() {
 
         <Route path="/translation">
         {/* <Translation /> */}
+        </Route>
+
+       
+        <Route path="/test">
+          <Test />
+        </Route>
+
+        <Route path="/translation">
+          {/* <Translation /> */}
+        </Route>
+        
+        <Route path="/example1">
+          <Example1 />
+        </Route>
+
+        <Route path="/example2">
+          <Example2 />
+        </Route> 
+
+        <Route path="/">
+          <Login />
         </Route>
 
       </Switch>

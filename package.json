@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/hugs-develop/hugs#readme",
   "dependencies": {
-    "axios": "^0.21.1",
     "lerna": "^3.22.1",
+    "axios": "^0.21.1",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
