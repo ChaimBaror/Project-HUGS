@@ -39,22 +39,21 @@ export const FamilyMember = () => {
     );
     const classes = useStyles();
     const [user, setUser] = useState();
-    const [member, setMember] = useState(
-        [
-            { id: 1, firstName: "Rachel", lastName: "Berkowitz", Image: girl, role: "girl" },
-            { id: 2, firstName: "Amos", lastName: "Cohen", Image: nephew, role: "nephew" },
-            { id: 3, firstName: "Anat", lastName: "Levy", Image: daughter, role: "daughter" },
-        ]
-    );
+    const [member, setMember] = useState([{ id: 1, firstName: "", lastName: "", Image: "", role: "" }]);
 
     useEffect(() => {
+        setMember([
+        { id: 1, firstName: "Rachel", lastName: "Berkowitz", Image: girl, role: "girl" },
+        { id: 2, firstName: "Amos", lastName: "Cohen", Image: nephew, role: "nephew" },
+        { id: 3, firstName: "Anat", lastName: "Levy", Image: daughter, role: "daughter" },
+    ])
         // const setUser = JSON.parse(atob(localStorage.getItem('accessToken').split('.')[1]))
         const allMember = http.get(`/allMember/${user}`)
             .then(res => {
                 console.log("res", res.data);
                 // setMember(res.data);
             })
-    });
+    },[]);
 
     const addNewMamber = (event: any) => {
 

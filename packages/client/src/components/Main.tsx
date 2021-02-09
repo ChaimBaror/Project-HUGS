@@ -12,6 +12,7 @@ import Test from '../test/Test'
 // import Translation from "../languageSelect";
 import Example1 from "./Example1";
 import Example2 from "./Example2";
+import GrandmotherCondition from "./UI/GrandmotherCondition";
 
 export default function Main() {
   const { t } = useTranslation();
@@ -65,8 +66,10 @@ export default function Main() {
         <Route path="/translation">
         {/* <Translation /> */}
         </Route>
-
-       
+        <Route path="/condition">
+        <GrandmotherCondition />
+        </Route>
+        
         <Route path="/test">
           <Test />
         </Route>
