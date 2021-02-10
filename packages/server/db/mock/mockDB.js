@@ -26,7 +26,7 @@ function getDB() {
             },
         },
         account: {
-            async update(account) {
+            async create(account) {
                 const i = accounts.findIndex((u) => u.id === account.id);
                 accounts.splice(i, 1, account);
                 return mock(account);

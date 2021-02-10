@@ -27,9 +27,6 @@ function validateAccount(body) {
     if (typeof email !== 'string') {
         throw new Error('Invalid text');
     }
-    // const boardQeust = onboardingQuestioner.map((m) => {
-    //     const { ob } = m;
-    // });
     return {
         id: id || crypto.randomBytes(8).toString('hex'),
         email,
@@ -44,7 +41,7 @@ function createRoute(db) {
         const { userId } = req.cookies;
         try {
             const account = validateAccount(body, false);
-            const newAccount = await db.account.update({ ...account, userId });
+            const newAccount = await db.account.create({ ...account, userId });
             res.json(newAccount.toJSON());
         } catch (e) {
             res.status(422).json({

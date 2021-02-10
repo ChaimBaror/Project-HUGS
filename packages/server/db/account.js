@@ -24,14 +24,6 @@ async function init(sequelize) {
         },
         questioner: {
             type: DataTypes.JSONB,
-            // get(key) {
-            //     const {
-            //         questionId, answerId, time, type,
-            //     } = JSON.parse(this.getDataValue(key));
-            //     return {
-            //         questionId, answerId, time, type,
-            //     };
-            // },
         },
     },
     {
@@ -42,7 +34,18 @@ async function init(sequelize) {
         timestamps: false,
     });
     await Account.sync();
-    return Account;
+    return {
+        /**
+         * @param {Object} data
+         * @param {string} data.firstName
+         * @param {string} data.lastName
+         * @param {Date} data.date
+         */
+        async createUser(data) {
+            Account.create(data);
+        },
+
+    };
 }
 module.exports = {
     init,

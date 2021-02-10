@@ -10,6 +10,7 @@ async function init() {
     if (!db.initialiaized) {
         const connection = connect.getConnection();
         db.account = await initAccount(connection);
+        await db.account.createUser();
 
         db.initialiaized = true;
     }
