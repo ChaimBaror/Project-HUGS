@@ -28,7 +28,7 @@ async function init(sequelize) {
         {
             sequelize,
             modelName: 'user',
-            schema: 'first_application',
+            schema: process.env.PGSCHEMA,
             freezeTableName: true,
             timestamps: false,
         },
