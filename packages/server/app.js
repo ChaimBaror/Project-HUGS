@@ -12,6 +12,9 @@ const logger = require('morgan');
 const fs = require('fs');
 const ini = require('ini');
 
+const accountRouter = require('./api/account/index');
+const usersRouter = require('./api/user/index');
+
 const secret = ini.parse(fs.readFileSync('secrets.ini', 'utf-8'));
 
 Object.keys(secret).forEach((k) => {
@@ -61,6 +64,9 @@ app.use('/', api.facebook_callback);
 
 app.use(api.account_path, api.account);
 app.use(api.user_path, api.user);
+
+app.use('/account', accountRouter.route);
+app.use('/users', usersRouter.route);
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');

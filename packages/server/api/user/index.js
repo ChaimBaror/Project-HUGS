@@ -1,15 +1,22 @@
 const express = require('express');
 const validateUser = require('./validation');
 
-const router = express.Router();
 function createRoute(db) {
-    return router.post('/', async (req, res) => {
+    const router = express.Router();
+
+    router.post('/', async (req, res) => {
         const { body } = req;
 
         try {
+            // currently each user has only one account.
             const user = validateUser(body, false);
+            const exisistingUser = db.user.find(user.id);
+            if (exisistingUser) {
+                // return error - cannot create user
+            }
+            // case where user does not exist - create user
             const newUser = await db.user.create(user);
-            const newAcc = await db.account.create({ id: 'nkjsgkdsng454', email: 'yakov.m1994@gmail.com', registrationTime: 'Sun Dec 27 2020 17:48:19 GMT+0200' });
+            const newAcc = await db.account.create(user);
             newUser.addAccount(newAcc);
             res.json(newUser);
         } catch (e) {
@@ -18,6 +25,8 @@ function createRoute(db) {
             });
         }
     });
+
+    return router;
 }
 const ROUTE_PATH = '/user';
 module.exports = {
