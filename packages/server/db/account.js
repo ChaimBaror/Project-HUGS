@@ -41,12 +41,13 @@ async function init(sequelize) {
          * @param {string} data.lastName
          * @param {Date} data.date
          */
-        async createUser(data) {
+        async createAccount(data) {
             Account.create(data);
         },
 
     };
 }
+
 module.exports = {
     init,
     Account,
