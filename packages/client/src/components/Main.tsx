@@ -20,10 +20,10 @@ export default function Main() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact >
+        <Route path="/" exact>
           <Login />
         </Route>
-        <Route path="/First"  >
+        <Route path="/First">
           <Container
             headerHeight='15%'
             badyHeight='71%'

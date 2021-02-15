@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Container from './../Container';
+import GrandmaCalendar from './GrandmaCalendar';
 import Group from './group';
 
 export class GrandmotherCondition extends Component {
@@ -11,7 +12,8 @@ export class GrandmotherCondition extends Component {
             BackArrow={""}
             HugsLogo={ <Group />
             }>
-                {/* <Group /> */}
+          <GrandmaCalendar />
+
           </Container>
 
         )
