@@ -1,19 +1,15 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize } = require('sequelize');
 
-const database = "app";
-const username = "app_user";
-const password = "1234";
-const dialect = "postgres";
-const schema = "first_application";
-
-exports.getConnection = () => {
-  return new Sequelize({
+exports.getConnection = ({
     database,
     username,
     password,
     schema,
     dialect,
-  });
-}
-
-
+}) => new Sequelize({
+    database,
+    username,
+    password,
+    schema,
+    dialect,
+});

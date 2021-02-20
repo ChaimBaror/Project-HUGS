@@ -1,8 +1,7 @@
-POST  http://localhost:8080/users HTTP/1.1
+POST  http://localhost:8443/users HTTP/1.1
 content-type: application/json
 
 {
-  "email": "abcd@gkmrgt.com",
+  "email": "klein.yaki@gmail.com",
   "accountId": "51489",
-  "registrationTime": "Sun Dec 27 2020 17:48:19 GMT+0200"
 }
