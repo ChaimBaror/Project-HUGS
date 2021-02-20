@@ -3,6 +3,7 @@ import { COLORS } from "./Colors.js";
 import { makeStyles } from "@material-ui/core/styles";
 import HugsLogo from "./HugsLogo";
 import Button from "./Button";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   root: {
@@ -14,26 +15,23 @@ const useStyles = makeStyles({
 });
 
 
-// this test click login console.log()
-const LoginClick = () => {
-  console.log('Click Login');
-}
-
 const Login = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
     <div className={classes.root}>
       <HugsLogo width="100px" height="100px" />
       <Button
-       text=""
+       text={t("Login")}
        width="88%"
        height="10%"
        radius= "10px"
        background = "White"
        color ="rgba(11, 32, 76, 1)"
-       onClick={LoginClick}
+       onClick={()=>console.log("Login")}
        />
+
     </div>
   );
 };

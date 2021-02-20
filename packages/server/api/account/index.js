@@ -1,34 +1,57 @@
-// const auth = require('./auth/index');
 const express = require('express');
-const validateUser = require('./validation');
-
-const getDB = require('../../db');
+const crypto = require('crypto');
 
 /**
+ *  @typedef {object} Account
+ *  @property {string} id
+ *  @property {string} questioner
  *
- * @param {DB} db - a db object
  */
-function init(db) {
-    const route = express.Router();
-    route.post('/', async (req, res) => {
-        const { body } = req;
 
+/**
+ * POST Account
+ * @param {Account} body
+ * @param {boolean} enforce
+ * @returns {Account}
+ */
+function validateAccount(body) {
+    if (!body) {
+        throw new Error('Invalid body');
+    }
+    const {
+        id, email, registrationTime, questioner,
+    } = body;
+
+    if (typeof email !== 'string') {
+        throw new Error('Invalid text');
+    }
+    return {
+        id: id || crypto.randomBytes(8).toString('hex'),
+        email,
+        registrationTime,
+        questioner,
+    };
+}
+
+function createRoute(db) {
+    const router = express.Router();
+
+    return router.post('/', async (req, res) => {
+        const { body } = req;
+        const { userId } = req.cookies;
         try {
-            const account = validateUser(body, false);
-            const newAccount = await db.account.create(account);
-            res.json(newAccount);
+            const account = validateAccount(body, false);
+            const newAccount = await db.account.create({ ...account, userId });
+            res.json(newAccount.toJSON());
         } catch (e) {
             res.status(422).json({
-                error: e.message,
+                error: 'incorrect data provider',
             });
         }
     });
-
-    return route;
 }
-
-const PATH = '/account';
+const ROUTE_PATH = '/account';
 module.exports = {
-    PATH,
-    init,
+    createRoute,
+    ROUTE_PATH,
 };

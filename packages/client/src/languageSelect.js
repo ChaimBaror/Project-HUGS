@@ -11,8 +11,9 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import TextField from "@material-ui/core/TextField";
 
 const languageMap = {
-  en: { label: "English", dir: "ltr", active: true },
+  en: { label: "English", dir: "ltr", active: false },
   ar: { label: "العربية", dir: "rtl", active: false },
+  he: { label: "Hebrew", dir: "rtl", active: true },
 };
 
 const Translation = () => {

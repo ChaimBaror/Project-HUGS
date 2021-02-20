@@ -1,0 +1,20 @@
+POST http://localhost:8080/account HTTP/1.1
+content-type: application/json
+
+{
+
+    "email": "nisim10b@gmail.com",
+    "registrationTime":"Dec 27 2020 17:48:19 GMT+0200",
+    "questioner":[{
+                    "questionId": 1234,
+                    "answerId": 1234,
+                    "type": "onboarding",
+                    "time": "09-24-2020 12:35:32"
+                    },{
+                    "questionId": 12345,
+                    "answerId": 12345,
+                    "type": "onboarding",
+                    "time": "01-01-2021 12:35:32"
+                    }]
+}
+### sql injection

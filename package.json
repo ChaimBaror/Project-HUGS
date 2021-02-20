@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/hugs-develop/hugs#readme",
   "dependencies": {
-    "lerna": "^3.22.1",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "axios": "^0.21.1",
+    "lerna": "^3.22.1",
+    "react-google-charts": "^3.0.15",
+    "react-native-calendar-strip": "^2.1.9",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {

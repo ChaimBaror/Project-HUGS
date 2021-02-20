@@ -22,5 +22,5 @@
   },
   "include": [
     "src", "src/i18nextConf.js", "src/i18nextInit.jssrc/languageSelect.jst.js", "src/index.js"
-  ]
+   ]
 }

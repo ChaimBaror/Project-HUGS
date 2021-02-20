@@ -18,7 +18,7 @@ function App() {
       <div style={{ height: "100%", background: "blue", width: "100%" }}>
 
         {/* example to test button component */}
-        <Button></Button>
+        {/* <Button ></Button> */}
 
         {/* example to test login component */}
         <Login></Login>

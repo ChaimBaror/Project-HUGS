@@ -1,22 +1,20 @@
-const { init: initUser } = require('./tables');
-// const { init: initAccount,Account}  = require("./account");
+const { init: initAccount, Account } = require('./account');
+const { init: initUser, User } = require('./user');
+const { init: initUserAccount } = require('./userAccount');
 
 const connect = require('./connection');
 
 const db = {
-    initialized: false,
+    initialiaized: false,
 };
 
 async function init() {
-    if (!db.initialized) {
+    if (!db.initialiaized) {
         const connection = connect.getConnection();
-        const { acc, use, UserAccount } = await initUser(connection);
-        db.user = use;
-        db.account = acc;
-        db.User_Account = User_Account;
-        // db.account = await initAccount(connection,User);
-
-        db.initialized = true;
+        db.user = await initUser(connection);
+        db.account = await initAccount(connection);
+        db.userAccount = await initUserAccount(connection, User, Account);
+        db.initialiaized = true;
     }
     return db;
 }
