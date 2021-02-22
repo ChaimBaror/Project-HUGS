@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import CalendarStrip from 'react-native-calendar-strip';
 import nephew from "../../icons/image/nephew.svg";
 import daughter from "../../icons/image/granddaughter.svg";
 import grandchild from "../../icons/image/grandchild.svg";

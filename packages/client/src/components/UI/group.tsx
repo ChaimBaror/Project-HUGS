@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Chart } from "react-google-charts";
 import { BackArrow } from './../BackArrow';
-import grandma from "../../icons/image/Grandma.svg";
+import grandma from "../../icons/image/grandma.svg";
 import flowers from "../../icons/Phone.svg";
 import HomeIcon from '@material-ui/icons/Home';
 import { ChartWrapperOptions } from 'react-google-charts/dist/types';
@@ -123,6 +123,7 @@ const Group = () => {
                 rootProps={{ 'data-testid': '2' }}
                 />
             </div>
+            
         </div>
     )}
 
