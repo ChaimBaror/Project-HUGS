@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import Container from './../Container';
-import GrandmaCalendar from './GrandmaCalendar';
-import Group from './group';
+import Container from '../Container';
+import GrandmaCalendar from '../UIGrangmaCalender/GrangmaCalender';
+import Group from '../UIGrangmaCalender/group';
+import GrandmaHugsCard from './GrandmaHugsCard';
 
 export class GrandmotherCondition extends Component {
     render() {
@@ -12,7 +13,10 @@ export class GrandmotherCondition extends Component {
             BackArrow={""}
             HugsLogo={ <Group />
             }>
+         <div >
           <GrandmaCalendar />
+          </div>
+
 
           </Container>
 

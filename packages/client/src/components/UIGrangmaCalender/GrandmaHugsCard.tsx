@@ -8,39 +8,47 @@ import AvatarGroup from '@material-ui/lab/AvatarGroup';
 
 
 
-const GrandmaHugsCard = () => {
+const GrandmaHugsCard = (props: any) => {
   const useStyles = makeStyles({
-    crod: { background: '#EDF0F7', borderRadius: '15px', width: "200px", padding: '0px 5px',margin: '0px 10px' },
-    crodTitel:{ height: "5px", direction: 'rtl' },
-    pHr:{ borderBottom: '0.1px solid #C4C4C4' },
-    cradflex:{display: 'flex', justifyContent: 'space-between', direction: 'rtl'},
-    ul: { margin: '0',padding: '0',direction: 'rtl'},
-    li: { display: "block", margin: '5px', fontStyle: 'normal', fontWeight: 'normal', fontSize: '10px', lineHeight: '12px',color: '#2A2042'},
-    avatar: {  height: "20%", width: '5%', direction: 'ltr', paddingTop: '25px' }
+    crod: { background: '#EDF0F7', borderRadius: '15px', width: "200px", padding: '0px 5px', margin: '0px 10px' },
+    crodTitel: { height: "5px", direction: 'rtl' },
+    pHr: { borderBottom: '0.1px solid #C4C4C4' },
+    cradflex: { width: "150px" },
+    ul: { margin: '0', padding: '0', direction: 'rtl' },
+    li: { display: "block", margin: '5px', fontStyle: 'normal', fontWeight: 'normal', fontSize: '10px', lineHeight: '12px', color: '#2A2042' },
+    avatarDiv: { height: "", width: '', direction: 'ltr', position: 'absolute', bottom: "2px" },
+    avatarSize: { height: "30px", width: '30px', border: "none" }
   });
   const classes = useStyles();
 
-  const avatar = () => {
-    <div>
+  const d = new Date(props.fullDate);
 
-    </div>
+  const checkIf = (some: number) => {
+    if (some == 1) return <div className={classes.li} style={{ borderRight: '4px solid #F76940' }}>&nbsp; טלפון</div>
+    if (some == 2) return <div className={classes.li} style={{ borderRight: '4px solid #1FD0DE' }}>&nbsp;יציאה לגינה</div>
+    if (some == 3) return <div className={classes.li} style={{ borderRight: '4px solid #8462AA' }}>&nbsp;משלוח פרחים</div>
+    if (some == 4) return   <div className={classes.li} style={{ borderRight: '4px solid #5D5AA6' }}>&nbsp;משלוח</div> 
+    else return   <div className={classes.li} style={{ borderRight: '4px solid red' }}>&nbsp;</div> 
+
   }
+
+
 
   return (
     <div className={classes.crod} >
-      <h5 className={classes.crodTitel}>10.13.2020</h5>
+      <h5 className={classes.crodTitel}>{d.toLocaleDateString("he-UE")}</h5>
       <p className={classes.pHr}></p>
       <div className={classes.cradflex}>
         <div >
           <div className={classes.ul} >
-            <div className={classes.li} style={{ borderRight: '4px solid #F76940' }}>&nbsp; טלפון</div>
-            <div className={classes.li} style={{ borderRight: '4px solid #1FD0DE' }}>&nbsp;יציאה לגינה</div>
-            <div className={classes.li} style={{ borderRight: '4px solid #8462AA' }}>&nbsp;משלוח פרחים</div>
-            <div className={classes.li} style={{ borderRight: '4px solid #5D5AA6' }}>&nbsp;משלוח</div>
+          {checkIf(1)}
+          {checkIf(0)}
+          {checkIf(2)}
+          {checkIf(4)}
           </div>
         </div>
-        <div className={classes.avatar}>
-          <AvatarGroup spacing="small" max={4}>
+        <div className={classes.avatarDiv}>
+          <AvatarGroup classes={{ avatar: classes.avatarSize }} spacing="small" max={4}>
             <Avatar variant="circle" alt="Cindy Baker" src={daughter} />
             <Avatar alt="Agnes Walker" src={grandchild} />
             <Avatar alt="Trevor Henderson" src={grandson} />
