@@ -1,0 +1,20 @@
+version: "3.7"
+services: 
+  db:
+    image: postgres
+    environment: 
+      POSTGRES_PASSWORD: 1234567890
+      POSTGRES_USER: postgres
+      POSTGRES_DB: hugs
+    volumes: :
+      - ./pgdata:/var/lib/postgresql/data
+    ports: 
+      - 5432:5432
+  api:
+    image: hugs-api
+    depends_on: 
+      - db
+    ports: 
+      - 8443:8443
+
+

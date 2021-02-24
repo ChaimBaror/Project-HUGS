@@ -1,0 +1,11 @@
+{
+  "name": "deploy",
+  "version": "1.0.0",
+  "description": "hugs deployment",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Yaki",
+  "license": "ISC"
+}
