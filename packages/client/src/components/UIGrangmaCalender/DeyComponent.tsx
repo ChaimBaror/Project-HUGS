@@ -10,9 +10,12 @@ const DeyComponent = (props: props) => {
     const dayOfWeeks = ['SUN', 'MON', 'TUE', 'WED', 'THR', 'FRI', 'SAT'];
 
     const checkIf = (day: any) => {
-        if (day == 'MON') return <hr style={{ borderBottom: '4px solid #F76940' }} />
-        if (day == 'WED') return <hr style={{ borderBottom: '4px solid #8462AA' }} />
-        if (day == 'SUN') return <hr style={{ borderBottom: '4px solid #1FD0DE' }} />
+        if (day == 0) return <hr style={{ borderBottom: '4px solid #F76940' }} />
+        if (day == 3) return <hr style={{ borderBottom: '4px solid #8462AA' }} />
+        if (day == 5) return <hr style={{ borderBottom: '4px solid #1FD0DE' }} />
+        if (day == 2) return <hr style={{ borderBottom: '4px solid #F76940' }} />
+        if (day == 1) return <hr style={{ borderBottom: '4px solid #8462AA' }} />
+        else return <hr style={{ borderBottom: '4px solid #EDF0F7' }} />
     }
     const checkActe = (day: any) => {
         if (day.getDate() == new Date().getDate() && day.getMonth() == new Date().getMonth() ) return "#EDF0F7"
@@ -22,6 +25,7 @@ const DeyComponent = (props: props) => {
     return (
         <div style={{
             background: checkActe(d),
+            width:'10%',
             borderRadius: '15px',
             padding: '1% 3%',
             textAlign: "center"
@@ -34,8 +38,11 @@ const DeyComponent = (props: props) => {
            
            <div >
             {checkIf(d.getDay())}
-            <hr style={{ borderBottom: '4px solid #F76940' }} />
-            <hr style={{ borderBottom: '4px solid #8462AA' }} />
+            <hr style={{ borderBottom: '4px solid #EDF0F7' }} />
+            <hr style={{ borderBottom: '4px solid #EDF0F7' }} />
+         
+
+
             </div>
         </div>
 

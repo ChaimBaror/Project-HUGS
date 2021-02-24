@@ -12,7 +12,7 @@ import Test from '../test/Test'
 // import Translation from "../languageSelect";
 import Example1 from "./Example1";
 import Example2 from "./Example2";
-import GrandmotherCondition from "./UI/GrandmotherCondition";
+import GrandmotherCondition from "./UIGrangmaCalender/GrandmotherCondition";
 
 export default function Main() {
   const { t } = useTranslation();
