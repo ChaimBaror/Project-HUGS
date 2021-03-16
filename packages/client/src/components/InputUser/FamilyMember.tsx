@@ -9,34 +9,34 @@ import { Avatar, createStyles, makeStyles, } from '@material-ui/core';
 import BaseHttpService from '../../api';
 import { useTranslation } from 'react-i18next';
 
-const useStyles = makeStyles(() =>
-createStyles({
-    root: {
-        height: '48vh',
-        overflow: 'auto',
-    },
-    rowCred:{
-        display: 'flex',
-        'border-bottom': '0.1px solid #C4C4C4',
-        padding: '5px',
-    },
 
-    details: {
-        display: 'flex',
-        padding: '5px',
-        flexDirection: 'column',
-    },
-    sub: {
-        color: '#C4C4C4'
-    },
-}),
-);
 
 export const FamilyMember = () => {
     const { t } = useTranslation();
 
     const http = new BaseHttpService()
-  
+    const useStyles = makeStyles(() =>
+        createStyles({
+            root: {
+                height: '48vh',
+                overflow: 'auto',
+            },
+            rowCred:{
+                display: 'flex',
+                'border-bottom': '0.1px solid #C4C4C4',
+                padding: '5px',
+            },
+
+            details: {
+                display: 'flex',
+                padding: '5px',
+                flexDirection: 'column',
+            },
+            sub: {
+                color: '#C4C4C4'
+            },
+        }),
+    );
     const classes = useStyles();
     const [user, setUser] = useState();
     const [member, setMember] = useState([{ id: 1, firstName: "", lastName: "", Image: "", role: "" }]);
@@ -48,11 +48,11 @@ export const FamilyMember = () => {
         { id: 3, firstName: "Anat", lastName: "Levy", Image: daughter, role: "daughter" },
     ])
         // const setUser = JSON.parse(atob(localStorage.getItem('accessToken').split('.')[1]))
-        // const allMember = http.get(`/allMember/${user}`)
-        //     .then(res => {
-        //         console.log("res", res.data);
-        //         // setMember(res.data);
-        //     })
+        const allMember = http.get(`/allMember/${user}`)
+            .then(res => {
+                console.log("res", res.data);
+                // setMember(res.data);
+            })
     },[]);
 
     const addNewMamber = (event: any) => {
@@ -90,7 +90,7 @@ export const FamilyMember = () => {
 
         setMember(
             [...member, newMember])
-        // console.log(http.post('/post', newMember))
+        console.log(http.post('/post', newMember))
         console.log("member", member);
 
     }

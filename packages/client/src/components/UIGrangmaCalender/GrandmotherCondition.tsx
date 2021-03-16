@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ButtonFloor from '../ButtonFloor';
 import Container from '../Container';
 import GrandmaCalendar from '../UIGrangmaCalender/GrangmaCalender';
 import Group from '../UIGrangmaCalender/group';
@@ -13,11 +14,12 @@ export class GrandmotherCondition extends Component {
             BackArrow={""}
             HugsLogo={ <Group />
             }>
-         <div >
+         <div>
           <GrandmaCalendar />
+          <ButtonFloor />
+          
           </div>
-
-
+       
           </Container>
 
         )

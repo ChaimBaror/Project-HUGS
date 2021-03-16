@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from "react-router";
 
 
 interface Props {
@@ -10,7 +11,6 @@ interface Props {
   children: any;
 }
 
-
 const Container = (props: Props) => {
   const useStyles = makeStyles({
     root: {
@@ -18,7 +18,7 @@ const Container = (props: Props) => {
       height: '100%',
       width: '100%',
       position: 'absolute'
-    },
+        },
     header: {
       height: props.headerHeight,
       width: '100%',
@@ -36,28 +36,33 @@ const Container = (props: Props) => {
     backArrow: {
       position: 'absolute',
       left: '90%',
-      top: '4%',
+      top: '3%',
     },
     center:{
       "text-align": 'center',
     }
   });
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <div className={classes.root}>
       <header className={classes.header}>
-        <div className={classes.backArrow}>
-          {props.BackArrow}
+        <div>
+        <div className={classes.backArrow} 
+        onClick={() => { history.goBack();}}
+>
+          {props.BackArrow} 
         </div>
         <div className={classes.center}>
           {props.HugsLogo}
         </div>
-
+        </div>
       </header>
 
       <div className={classes.bady}>
         {props.children}
+      
       </div>
     </div>
   )

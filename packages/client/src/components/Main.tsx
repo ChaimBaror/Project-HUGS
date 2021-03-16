@@ -4,15 +4,15 @@ import Container from './Container';
 import BackArrow from "./BackArrow";
 import HugsLogo from "./HugsLogo";
 import Button from './Button';
-import FamilyMember from "./InputUser/FamilyMember";
-import Login from "./Login";
 import { Translation, useTranslation } from "react-i18next";
-import FirstScreen from "./FirstScreen";
 import Test from '../test/Test' 
 // import Translation from "../languageSelect";
 import Example1 from "./Example1";
 import Example2 from "./Example2";
 import GrandmotherCondition from "./UIGrangmaCalender/GrandmotherCondition";
+import Screen from "../container/Screen";
+import CircleOfFriends from "../container/CircleOfFriends";
+import Login from "../container/Login";
 
 export default function Main() {
   const { t } = useTranslation();
@@ -20,19 +20,11 @@ export default function Main() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
-          <Login />
-        </Route>
-        <Route path="/First">
-          <Container
-            headerHeight='15%'
-            badyHeight='71%'
-            BackArrow={<BackArrow />}
-            HugsLogo={<HugsLogo width="60%" height="60%" />}
-          >
-          <FirstScreen />
-          </Container>
-        </Route>
+        <Route path="/" exact><Login /></Route>
+        <Route path="/Login"  component={Screen} />
+        <Route path="/Member" component={CircleOfFriends} />
+        <Route path="/condition" component={GrandmotherCondition} />
+
 
         <Route path="/Container">
           <Container
@@ -52,22 +44,9 @@ export default function Main() {
           </Container>
         </Route>
 
-        <Route path="/Member">
-          <Container
-            headerHeight='15%'
-            badyHeight='71%'
-            BackArrow={<BackArrow />}
-            HugsLogo={<HugsLogo width="60%" height="60%" />}>
-
-            <FamilyMember />
-          </Container>
-        </Route>
-
+      
         <Route path="/translation">
         {/* <Translation /> */}
-        </Route>
-        <Route path="/condition">
-        <GrandmotherCondition />
         </Route>
         
         <Route path="/test">

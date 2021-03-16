@@ -17,10 +17,7 @@ const Button = (props: Props) => {
 
   const useStyles = makeStyles({
   root: {
-  
-    
-    "bottom": "22.96%",
-    
+    "bottom": "22.96%", 
   },
   but: {
     position: "absolute",
