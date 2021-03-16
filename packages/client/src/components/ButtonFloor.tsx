@@ -1,20 +1,31 @@
-import React from 'react';
+import { Dialog } from '@material-ui/core';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Form from './InputUser/Form';
+import NewHugs from './newHugs/NewHugs';
 
 const ButtonFloor = () => {
-
+ 
+      
+        const [open, setOpen] = useState(false);
+        const handleClickOpen = () => {
+          setOpen(true);
+        };
+        const handleClose = () => {
+          setOpen(false);
+        };
     return (
         <div style={{
             display: "flex",
             justifyContent: "space-evenly",
-            // position: "fixed",
+            position: "fixed",
             left: "0",
             bottom: "0",
             width: "100%",
             boxShadow:"0px 0px 20px rgb(0 0 0 / 10%)"
         }}>
 
-            <NavLink to={"/"}><svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <NavLink to={'/'} ><svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M25 1L7 13V20L11.32 15.7" stroke="#B2BAC9" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M1 9L25 1L20.2 21L1 9Z" stroke="#B2BAC9" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
@@ -30,7 +41,7 @@ const ButtonFloor = () => {
             </NavLink>
 
 
-            <NavLink to={"/"}>
+            <div onClick={handleClickOpen}>
                 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="32" cy="32" r="32" fill="#F76940" />
                     <path d="M34.2378 36.3868C32.6872 38.0213 29.458 40.5915 26.6182 42.1847C24.2104 40.1883 22.2856 38.2043 21.1216 36.4432C18.2611 32.1188 18.2012 27.3854 21.5047 24.7024C23.0002 23.4861 24.4917 23 26.2927 23C28.2781 23 31.0995 24.6419 32.2511 25.66C33.4027 24.6419 35.6921 23.1064 37.6775 23.1064C39.4785 23.1064 40.5063 23.51 42.0032 24.7263C45.3053 27.4092 45.9644 32.5077 43.1039 36.832C41.1488 39.7902 36.2494 44.3636 31.9842 46.9199" stroke="white" stroke-width="3.21844" stroke-linecap="round" />
@@ -51,7 +62,17 @@ const ButtonFloor = () => {
                         </linearGradient>
                     </defs>
                 </svg> 
-                </NavLink>
+                <Dialog open={open}
+                    onClose={handleClose}
+                    fullScreen
+                    aria-labelledby="form-dialog-title">
+            <NewHugs 
+          onClose={handleClose}
+          />
+     
+      
+      </Dialog>
+                </div>
           
             <NavLink to={"/condition"}><svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.5088 14.6C4.15699 15.2556 3.01714 16.2787 2.21974 17.552C1.42234 18.8254 0.999629 20.2976 1 21.8V21.8C1 21.8 4.2 25 11.4 25C18.6 25 21.8 21.8 21.8 21.8C21.8002 20.2974 21.3773 18.8251 20.5796 17.5517C19.7819 16.2784 18.6417 15.2554 17.2896 14.6" stroke="#B2BAC9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
