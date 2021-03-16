@@ -17,6 +17,12 @@ const Button = (props: Props) => {
 
   const useStyles = makeStyles({
   root: {
+  
+    
+    "bottom": "22.96%",
+    
+  },
+  but: {
     position: "absolute",
     "border-radius": props.radius,
     "background": props.background,
@@ -39,9 +45,11 @@ const Button = (props: Props) => {
  
   //  create code for button
   return (
-    <button className={classes.root} onClick={props.onClick}>
+    <div className={classes.root}>
+    <button className={classes.but} onClick={props.onClick}>
       {text}
       </button>
+      </div>
   );
 };
 

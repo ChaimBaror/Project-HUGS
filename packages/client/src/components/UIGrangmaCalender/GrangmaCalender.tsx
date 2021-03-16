@@ -39,14 +39,14 @@ const GrangmaCalender = () => {
                     borderRadius: '20px'
                 }}>
                     <Button style={{ minWidth: '0px' }} onClick={() => setNumWeeks(numWeeks - 1)}> <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8.5 1L1 8.04797L8.5 15.0959" stroke="#2E2E30" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M8.5 1L1 8.04797L8.5 15.0959" stroke="#2E2E30" strokeMiterlimit="10" strokeLinecap="round" strokelinejoin="round" />
                     </svg>
                     </Button>
                     {grangmaCalendar.map(day => (
                         <DeyComponent fullDate={day.fullDate} />
                     ))}
                     <Button style={{ minWidth: '0px' }} onClick={() => setNumWeeks(numWeeks + 1)}><svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 0.578125L8.5 7.6261L1 14.6741" stroke="#2E2E30" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M1 0.578125L8.5 7.6261L1 14.6741" stroke="#2E2E30" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     </Button>
                 </div>

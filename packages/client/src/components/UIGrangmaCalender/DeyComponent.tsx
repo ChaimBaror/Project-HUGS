@@ -40,9 +40,6 @@ const DeyComponent = (props: props) => {
             {checkIf(d.getDay())}
             <hr style={{ borderBottom: '4px solid #EDF0F7' }} />
             <hr style={{ borderBottom: '4px solid #EDF0F7' }} />
-         
-
-
             </div>
         </div>
 

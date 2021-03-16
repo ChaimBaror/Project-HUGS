@@ -23,7 +23,7 @@ export const FirstScreen =()  =>{
                         {t("familyCircle")}
                     </div>
 
-                    <div className="divRadioButton" >
+                    <div className="divRadioButton" style={{direction: 'rtl'}} >
 
                     <RadioGroup
                     name="role"
@@ -43,6 +43,7 @@ export const FirstScreen =()  =>{
                             <button className="imagePicker">+</button>
                         </div>
                     </div>
+                    <div style={{height:'20px'}}>
 
                     <Button
                         text={t("next")}
@@ -53,7 +54,7 @@ export const FirstScreen =()  =>{
                         color="white"
                         onClick={()=>console.log(t("next"))} />
 
-               
+</div>
             </div>
 
         )
